@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Azu en Loop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #fcf6f5;
+            font-family: 'Inter', sans-serif;
+            color: #000050;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #D34E4E;
+            text-align: center;
+        }
+        .contenedor {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid #E8C3C3;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+        }
+        textarea {
+            height: 150px;
+        }
+        button {
+            background-color: #000050;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 30px;
+            width: 100%;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #D34E4E;
+        }
+        .resultado {
+            margin-top: 40px;
+            background: #222;
+            color: #0f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: monospace;
+            white-space: pre-wrap; /* Mantiene los saltos de línea */
+            display: none; /* Oculto hasta que generes */
+        }
+        .preview-img {
+            max-width: 100px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Panel de Control Secreto 🤫</h1>
+    
+    <div class="contenedor">
+        <label>Título del Artículo</label>
+        <input type="text" id="titulo" placeholder="Ej: La psicología del color rojo...">
+
+        <label>Imagen (URL de Unsplash o nombre de archivo)</label>
+        <input type="text" id="imagen" placeholder="https://...">
+        
+        <label>Cuerpo del Texto (Podés usar HTML simple si querés)</label>
+        <textarea id="texto" placeholder="Escribí aquí tu reflexión..."></textarea>
+
+        <label>Estilo de Tipografía</label>
+        <select id="estilo">
+            <option value="normal">Normal (Inter)</option>
+            <option value="elegante">Elegante (Playfair Display)</option>
+        </select>
+
+        <button onclick="generarCodigo()">GENERAR CÓDIGO MÁGICO ✨</button>
+
+        <div id="resultado" class="resultado"></div>
+    </div>
+
+    <script>
+        function generarCodigo() {
+            // 1. Agarramos lo que escribiste
+            let titulo = document.getElementById('titulo').value;
+            let imagen = document.getElementById('imagen').value;
+            let texto = document.getElementById('texto').value;
+            let estilo = document.getElementById('estilo').value;
+            
+            // Convertimos saltos de línea en párrafos HTML
+            let textoFormateado = texto.split('\n').map(p => `<p>${p}</p>`).join('');
+
+            // Definimos la fuente según lo que elegiste
+            let fontClass = estilo === 'elegante' ? "font-family: 'Playfair Display', serif;" : "";
+
+            // 2. Armamos la plantilla HTML
+            let codigoFinal = `
+            <article style="margin-bottom: 80px; text-align: left;">
+                <img src="${imagen}" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 32px; color: #D34E4E; margin-bottom: 15px;">${titulo}</h3>
+                <div style="${fontClass} line-height: 1.8; color: #333;">
+                    ${textoFormateado}
+                </div>
+                <hr style="border: 0; border-top: 1px solid #E8C3C3; margin-top: 40px;">
+            </article>
+            `;
+
+            // 3. Lo mostramos en la caja negra
+            let cajaResultado = document.getElementById('resultado');
+            cajaResultado.style.display = 'block';
+            cajaResultado.textContent = codigoFinal;
+            
+            alert("¡Listo! Copiá el código de la caja negra y pegalo en tu index.html");
+        }
+    </script>
+
+</body>
+</html>

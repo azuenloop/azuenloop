@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azu en Loop</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(rgba(232, 195, 195, 0.9), rgba(232, 195, 195, 0.9)), url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            color: #000050;
+            margin: 0;
+            padding: 0;
+        }
+
+        .portada {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- MARQUEE --- */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 40px;
+            white-space: nowrap;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-track {
+            display: inline-block;
+            animation: scroll 40s linear infinite;
+        }
+
+        .marquee-item {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            letter-spacing: 3px;
+            font-weight: bold; 
+            font-style: italic;
+            margin-right: 40px;
+            color: #3d4a96;
+            opacity: 0.7;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- TÍTULO PRINCIPAL --- */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 85px; /* Tamaño de AZU EN */
+            margin: 0;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; 
+            flex-wrap: wrap; 
+        }
+
+        /* --- AQUÍ ESTÁ EL CAMBIO DE TAMAÑO --- */
+        .contenedor-loop {
+            position: relative;
+            width: 300px; /* <--- MÁS ANCHO (Antes 220px) */
+            height: 160px; /* <--- MÁS ALTO (Antes 130px) */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px; /* Un pequeño ajuste para alinear con el texto */
+        }
+
+        .flechas-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            fill: #D34E4E; /* Rojo Terracota */
+            z-index: 1;
+            transform: scale(1.2); /* Escala de las flechas */
+            opacity: 0.9;
+        }
+
+        .texto-loop {
+            position: relative;
+            z-index: 2;
+            font-family: 'Playfair Display', serif;
+            font-size: 65px; /* <--- LETRA MÁS GRANDE (Antes 42px) */
+            font-weight: 700;
+            font-style: italic;
+            color: #000050; 
+            margin-top: 0px; 
+        }
+        /* ------------------------------------- */
+
+        .bajada {
+            font-size: 22px;
+            font-weight: 300;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            font-style: italic;
+        }
+
+        .boton {
+            background-color: #D34E4E;
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(211, 78, 78, 0.3);
+        }
+
+        .boton:hover {
+            transform: scale(1.05);
+            background-color: #b03030;
+        }
+
+        .sobre-mi {
+            background-color: #fcf6f5;
+            color: #1a1a1a;
+            padding: 100px 20px;
+        }
+
+        .contenido-texto {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 45px;
+            color: #000050;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 19px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .firma {
+            font-weight: bold;
+            margin-top: 50px;
+            text-align: center;
+            color: #D34E4E;
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portada">
+        <div class="marquee-container">
+            <div class="marquee-track">
+                <span class="marquee-item">Observa ~ Crea ~ Escribe ~</span>
+                <span class="marquee-item">Observa ~ Crea ~ Escribe ~</span>
+                <span class="marquee-item">Observa ~ Crea ~ Escribe ~</span>
+                <span class="marquee-item">Observa ~ Crea ~ Escribe ~</span>
+                <span class="marquee-item">Observa ~ Crea ~ Escribe ~</span>
+                <span class="marquee-item">Observa ~ Crea ~ Escribe ~</span>
+                <span class="marquee-item">Observa ~ Crea ~ Escribe ~</span>
+                <span class="marquee-item">Observa ~ Crea ~ Escribe ~</span>
+            </div>
+        </div>
+        
+        <h1>
+            AZU EN
+            
+            <div class="contenedor-loop">
+                <svg class="flechas-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+                </svg>
+                
+                <span class="texto-loop">LOOP</span>
+            </div>
+        </h1>
+        
+        <p class="bajada">Un laboratorio de historias que vuelven.</p>
+
+        <a href="#sobre-mi" class="boton">Entrar al Loop</a>
+    </div>
+
+    <div id="sobre-mi" class="sobre-mi">
+        <div class="contenido-texto">
+            <h2>Sobre mí</h2>
+            <p>Soy <strong>Azul</strong>, estudiante de comunicación y una apasionada de diseccionar las historias que nos rodean a través de la imagen y el relato.</p>
+            <p><strong>Azu en loop</strong> nació como un espacio para experimentar con la narrativa visual. Aquí, analizo desde el cine contemporáneo hasta las crónicas de la cultura cotidiana que a menudo pasan desapercibidas. Mi enfoque combina el rigor académico con una mirada curiosa sobre la moda, la estética de época y el diseño de interiores.</p>
+            <p>Creo que cada espacio tiene un relato que esconder y cada imagen una idea que merece ser analizada una y otra vez.</p>
+            <p class="firma">Bienvenidos al loop de mi mente.</p>
+        </div>
+    </div>
+
+</body>
+</html>
